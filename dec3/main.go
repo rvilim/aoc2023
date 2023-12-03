@@ -82,7 +82,7 @@ func q2(schematic []string) int {
 
 	parseNumbers(schematic, &numbers)
 
-	// We do this the opposeit way as q1 instead of looping over all the numbers we lop over all
+	// We do this the opposit eway as q1 instead of looping over all the numbers we loop over all
 	// the symbols, check if it's a "*", then find all the numbers that border it (by looping over the numbers)
 	// as we find an adjacent number we append that to a slice, then at the end check if the length of that slice
 	// is 2, it it is we add the product of those two numbers to our running total.
