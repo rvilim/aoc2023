@@ -97,6 +97,10 @@ func q2(schematic []string) int {
 					if row == number.row && (number.end == col || number.start == col+1) {
 						adjacentNumbers = append(adjacentNumbers, number)
 					}
+					// This is an early exit, if we have more than 2 adjacent numbers it's not a gear
+					if len(adjacentNumbers) > 2 {
+						break
+					}
 				}
 				if len(adjacentNumbers) == 2 {
 					total += adjacentNumbers[0].value * adjacentNumbers[1].value
