@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"regexp"
 	"slices"
@@ -15,15 +14,13 @@ type Card struct {
 }
 
 func parse(filepath string) []Card {
-	content, err := os.ReadFile(filepath)
+	content, _ := os.ReadFile(filepath)
 
 	var cards []Card
-	if err != nil {
-		fmt.Println("Error reading file")
-	}
+
+	r, _ := regexp.Compile(`\d+`)
 	for _, line := range strings.Split(string(content), "\n") {
 		pipePos := strings.Index(line, "|")
-		r, _ := regexp.Compile(`\d+`)
 
 		var card Card
 		for i, charRange := range r.FindAllStringSubmatchIndex(line, -1) {
